@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="ia-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#4dd0ff"/>
+      <stop offset="100%" stop-color="#1e9cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#050b1a"/>
+  <rect x="5" y="5" width="54" height="54" rx="9" fill="none" stroke="#1e9cff" stroke-opacity="0.55" stroke-width="2"/>
+  <!-- HUD corners -->
+  <path d="M 10 10 L 18 10 M 10 10 L 10 18" stroke="#4dd0ff" stroke-width="2"/>
+  <path d="M 54 10 L 46 10 M 54 10 L 54 18" stroke="#4dd0ff" stroke-width="2"/>
+  <path d="M 10 54 L 18 54 M 10 54 L 10 46" stroke="#4dd0ff" stroke-width="2"/>
+  <path d="M 54 54 L 46 54 M 54 54 L 54 46" stroke="#4dd0ff" stroke-width="2"/>
+  <text x="32" y="44" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="30" fill="url(#ia-grad)">IA</text>
+</svg>
