@@ -258,140 +258,207 @@ export default function Page() {
         </div>
       </nav>
 
-      {/* ───── 01 · HERO ───── */}
-      <section className="relative pt-20 md:pt-24 overflow-hidden">
-        {/* glows decorativos atrás de tudo */}
-        <div className="absolute top-24 left-1/4 w-[700px] h-[700px] bg-accent/10 blur-[160px] rounded-full pointer-events-none" />
-        <div className="absolute -top-10 right-0 w-[420px] h-[420px] bg-accent-2/10 blur-[140px] rounded-full pointer-events-none" />
+      {/* ───── 01 · HERO (imagem full-bleed) ───── */}
+      <section className="relative min-h-screen flex flex-col overflow-hidden">
+        {/* BG DESKTOP (hidden em mobile) */}
+        <div className="hidden md:block absolute inset-0 z-0" aria-hidden="true">
+          <Image
+            src="/galeria/hero-desk.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          {/* gradiente reforçando a zona preta da esquerda pra texto ficar nítido */}
+          <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/60 to-transparent" />
+        </div>
 
-        <div className="relative max-w-7xl mx-auto px-5">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-4 items-center min-h-[calc(100vh-5rem)] md:min-h-[88vh]">
+        {/* BG MOBILE (hidden em desktop) */}
+        <div className="md:hidden absolute inset-0 z-0" aria-hidden="true">
+          <Image
+            src="/galeria/hero-mobi.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          {/* gradiente top + bottom pra logo e CTA ficarem legíveis */}
+          <div className="absolute inset-0 bg-gradient-to-b from-bg/80 via-transparent to-bg/95" />
+        </div>
 
-            {/* ─── COL ESQUERDA (desktop) / abaixo da imagem (mobile) ─── */}
-            <div className="order-2 md:order-1 text-center md:text-left max-w-xl mx-auto md:mx-0 pb-8 md:pb-0">
-
-              {/* LOGO REAL */}
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="flex justify-center md:justify-start mb-6"
-              >
-                <h1 className="m-0 leading-none">
-                  <LogoMark variant="huge" priority />
-                  <span className="sr-only">
-                    nexIA Packshot — Packshots e criativos de alta qualidade para vender mais.
-                  </span>
-                </h1>
-              </motion.div>
-
-              {/* SUBHEAD (texto principal) */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex items-start gap-3 mb-5 justify-center md:justify-start"
-              >
-                <span className="shrink-0 w-9 h-9 rounded-md tech-tile flex items-center justify-center mt-0.5">
-                  <TrendingUp className="w-4 h-4 text-accent-2" aria-hidden="true" />
-                </span>
-                <p className="text-lg md:text-2xl text-ink font-semibold leading-snug text-balance">
-                  Packshots e criativos de <span className="text-accent-2">alta qualidade</span> para vender mais
-                </p>
-              </motion.div>
-
-              {/* PILL */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.35 }}
-                className="flex justify-center md:justify-start mb-4"
-              >
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent-2 bg-accent/5 glow-blue-soft">
-                  <Sparkles className="w-3.5 h-3.5 text-accent-2" aria-hidden="true" />
-                  <span className="text-xs md:text-sm font-medium text-ink tracking-wide">
-                    Crie com Inteligência Artificial
-                  </span>
-                </span>
-              </motion.div>
-
-              {/* BULLETS plataformas */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.45 }}
-                className="flex items-center flex-wrap gap-x-5 gap-y-2 mb-7 text-ink-dim text-sm font-medium justify-center md:justify-start"
-              >
-                <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />Instagram</span>
-                <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />Marketplace</span>
-                <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />TikTok</span>
-                <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />E-commerce</span>
-              </motion.div>
-
-              {/* CTAs */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.55 }}
-                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 justify-center md:justify-start mb-5"
-              >
-                <a
-                  href="#preco"
-                  className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-accent text-bg font-extrabold text-base font-mono tracking-wider uppercase hover:bg-accent-dark transition-colors glow-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-                >
-                  Quero entrar
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
-                </a>
-                <a
-                  href="#galeria"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md border border-accent/40 text-ink hover:border-accent-2 hover:text-accent-2 transition-colors text-sm font-mono tracking-wider uppercase font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-                >
-                  Ver galeria
-                </a>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.75 }}
-                className="text-[10px] md:text-[11px] text-ink-dimmer tracking-widest uppercase font-mono"
-              >
-                Acesso vitalício&nbsp;· Garantia 7 dias&nbsp;· Atualizações inclusas
-              </motion.div>
-            </div>
-
-            {/* ─── COL DIREITA (desktop only) com hero-desk.webp ─── */}
+        {/* ─── CONTEÚDO ─── */}
+        <div className="relative z-10 flex-1 flex flex-col">
+          {/* TOPO: logo (mobile centralizada acima dos cards) */}
+          <div className="pt-20 md:pt-24 px-5">
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.1 }}
-              className="hidden md:flex order-1 md:order-2 items-center justify-center relative"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-7xl mx-auto flex justify-center md:justify-start"
             >
-              <Image
-                src="/galeria/hero-desk.webp"
-                alt="Demonstração: produto real em foto original transformado em packshot de estúdio, cena natural e cena urbana"
-                width={1920}
-                height={1080}
-                priority
-                className="w-full h-auto max-h-[88vh] object-contain"
-              />
+              <h1 className="m-0 leading-none">
+                <LogoMark variant="huge" priority />
+                <span className="sr-only">
+                  nexIA Packshot — Packshots e criativos de alta qualidade para vender mais.
+                </span>
+              </h1>
+            </motion.div>
+          </div>
+
+          {/* SPACER mobile pra deixar o produto Creatina aparecer no meio */}
+          <div className="md:hidden flex-1 min-h-[50vh]" />
+
+          {/* DESKTOP: bloco esquerdo de conteúdo (textos + CTA) */}
+          <div className="hidden md:flex flex-1 items-center px-5">
+            <div className="max-w-7xl w-full mx-auto">
+              <div className="max-w-xl">
+                {/* SUBHEAD */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="flex items-start gap-3 mb-5"
+                >
+                  <span className="shrink-0 w-9 h-9 rounded-md tech-tile flex items-center justify-center mt-0.5">
+                    <TrendingUp className="w-4 h-4 text-accent-2" aria-hidden="true" />
+                  </span>
+                  <p className="text-2xl text-ink font-semibold leading-snug text-balance">
+                    Packshots e criativos de <span className="text-accent-2">alta qualidade</span> para vender mais
+                  </p>
+                </motion.div>
+
+                {/* PILL */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.35 }}
+                  className="mb-4"
+                >
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent-2 bg-bg/60 backdrop-blur-sm glow-blue-soft">
+                    <Sparkles className="w-3.5 h-3.5 text-accent-2" aria-hidden="true" />
+                    <span className="text-sm font-medium text-ink tracking-wide">
+                      Crie com Inteligência Artificial
+                    </span>
+                  </span>
+                </motion.div>
+
+                {/* BULLETS */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.45 }}
+                  className="flex items-center flex-wrap gap-x-5 gap-y-2 mb-7 text-ink-dim text-sm font-medium"
+                >
+                  <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />Instagram</span>
+                  <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />Marketplace</span>
+                  <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />TikTok</span>
+                  <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />E-commerce</span>
+                </motion.div>
+
+                {/* CTAs */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.55 }}
+                  className="flex flex-row items-center gap-3 mb-5"
+                >
+                  <a
+                    href="#preco"
+                    className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-accent text-bg font-extrabold text-base font-mono tracking-wider uppercase hover:bg-accent-dark transition-colors glow-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                  >
+                    Quero entrar
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
+                  </a>
+                  <a
+                    href="#galeria"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md border border-accent/40 bg-bg/40 backdrop-blur-sm text-ink hover:border-accent-2 hover:text-accent-2 transition-colors text-sm font-mono tracking-wider uppercase font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                  >
+                    Ver galeria
+                  </a>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.75 }}
+                  className="text-[11px] text-ink-dimmer tracking-widest uppercase font-mono"
+                >
+                  Acesso vitalício&nbsp;· Garantia 7 dias&nbsp;· Atualizações inclusas
+                </motion.div>
+              </div>
+            </div>
+          </div>
+
+          {/* MOBILE: bloco inferior fixado no rodapé do hero */}
+          <div className="md:hidden px-5 pb-10 pt-4">
+            {/* SUBHEAD */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex items-start gap-3 mb-4 max-w-md mx-auto"
+            >
+              <span className="shrink-0 w-8 h-8 rounded-md tech-tile flex items-center justify-center mt-0.5">
+                <TrendingUp className="w-3.5 h-3.5 text-accent-2" aria-hidden="true" />
+              </span>
+              <p className="text-lg text-ink font-semibold leading-snug text-balance">
+                Packshots e criativos de <span className="text-accent-2">alta qualidade</span> para vender mais
+              </p>
             </motion.div>
 
-            {/* ─── IMAGEM MOBILE ONLY (em cima do texto) ─── */}
+            {/* PILL */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.1 }}
-              className="order-1 md:hidden -mx-5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="flex justify-center mb-3"
             >
-              <Image
-                src="/galeria/hero-mobi.webp"
-                alt="Demonstração: produto real transformado em packshots profissionais com IA"
-                width={750}
-                height={1334}
-                priority
-                className="w-full h-auto"
-              />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-accent-2 bg-bg/70 backdrop-blur-sm glow-blue-soft">
+                <Sparkles className="w-3 h-3 text-accent-2" aria-hidden="true" />
+                <span className="text-[11px] font-medium text-ink tracking-wide">
+                  Crie com Inteligência Artificial
+                </span>
+              </span>
+            </motion.div>
+
+            {/* BULLETS */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="flex items-center justify-center flex-wrap gap-x-4 gap-y-1 mb-5 text-ink-dim text-xs font-medium"
+            >
+              <span className="inline-flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-accent-2" aria-hidden="true" />Instagram</span>
+              <span className="inline-flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-accent-2" aria-hidden="true" />Marketplace</span>
+              <span className="inline-flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-accent-2" aria-hidden="true" />TikTok</span>
+              <span className="inline-flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-accent-2" aria-hidden="true" />E-commerce</span>
+            </motion.div>
+
+            {/* CTA mobile (só primário, sem secundário pra ficar limpo) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.55 }}
+              className="flex justify-center"
+            >
+              <a
+                href="#preco"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-accent text-bg font-extrabold text-base font-mono tracking-wider uppercase hover:bg-accent-dark transition-colors glow-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              >
+                Quero entrar
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.75 }}
+              className="text-[10px] text-ink-dimmer tracking-widest uppercase font-mono text-center mt-4"
+            >
+              Acesso vitalício · Garantia 7 dias
             </motion.div>
           </div>
         </div>
