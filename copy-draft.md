@@ -26,7 +26,7 @@ ESTÚDIO DE PACKSHOT COM IA · TURMA 01 · ACESSO VITALÍCIO
 Crie packshots profissionais do seu produto em minutos — sem câmera, sem estúdio, sem fotógrafo.
 
 **Subhead:**
-Em poucas semanas você sai gerando imagens e vídeos de produto prontos pra Instagram, e-commerce e marketplace — mesmo sem saber nada de design ou fotografia.
+Packshots e criativos de alta qualidade para vender mais
 
 **CTAs (botões lado a lado):**
 - **Quero entrar na turma 01** (primário, neon roxo)

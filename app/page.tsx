@@ -320,8 +320,8 @@ export default function Page() {
             <span className="shrink-0 w-9 h-9 rounded-md tech-tile flex items-center justify-center mt-1">
               <TrendingUp className="w-4 h-4 text-accent-2" aria-hidden="true" />
             </span>
-            <p className="text-base md:text-xl text-ink leading-snug text-balance text-left md:text-center">
-              Em poucas semanas você sai gerando imagens e vídeos de produto prontos pra Instagram, e-commerce e marketplace — <span className="text-accent-2 font-semibold">mesmo sem saber nada de design ou fotografia.</span>
+            <p className="text-lg md:text-2xl text-ink font-semibold leading-snug text-balance text-left md:text-center">
+              Packshots e criativos de <span className="text-accent-2">alta qualidade</span> para vender mais
             </p>
           </motion.div>
 

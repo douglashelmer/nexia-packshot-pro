@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s · nexIA Packshot Pro",
   },
   description:
-    "Em poucas semanas você sai gerando imagens e vídeos de produto prontos pra Instagram, e-commerce e marketplace — mesmo sem saber nada de design ou fotografia.",
+    "Packshots e criativos de alta qualidade para vender mais. Curso de criação de imagens e vídeos de produto com IA — para Instagram, e-commerce, marketplace e TikTok.",
   keywords: [
     "packshot",
     "foto de produto com IA",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "nexIA Packshot Pro",
     title: "nexIA Packshot Pro — Crie packshots profissionais sem câmera",
     description:
-      "Em poucas semanas você sai gerando imagens e vídeos de produto prontos pra Instagram, e-commerce e marketplace — mesmo sem saber nada de design ou fotografia.",
+      "Packshots e criativos de alta qualidade para vender mais. Imagens e vídeos de produto com IA — Instagram, e-commerce, marketplace, TikTok.",
     images: [{ url: "/og.svg", width: 1200, height: 630, alt: "nexIA Packshot Pro", type: "image/svg+xml" }],
   },
   twitter: {
