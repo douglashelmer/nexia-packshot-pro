@@ -259,102 +259,141 @@ export default function Page() {
       </nav>
 
       {/* ───── 01 · HERO ───── */}
-      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 circuit-bg opacity-70" />
-        <div className="absolute inset-0 radial-fade" />
-        <div className="absolute inset-0 scanline opacity-50" />
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[1100px] h-[1100px] bg-accent/15 blur-[180px] rounded-full pointer-events-none" />
-        <div className="absolute -top-10 right-10 w-[420px] h-[420px] bg-accent-2/10 blur-[140px] rounded-full pointer-events-none" />
+      <section className="relative pt-20 md:pt-24 overflow-hidden">
+        {/* glows decorativos atrás de tudo */}
+        <div className="absolute top-24 left-1/4 w-[700px] h-[700px] bg-accent/10 blur-[160px] rounded-full pointer-events-none" />
+        <div className="absolute -top-10 right-0 w-[420px] h-[420px] bg-accent-2/10 blur-[140px] rounded-full pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-5">
-          {/* LOGO GIGANTE */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center mb-6 md:mb-8"
-          >
-            <h1>
-              <LogoMark variant="huge" />
-              <span className="sr-only">
-                nexIA Packshot — Crie packshots profissionais sem câmera.
-              </span>
-            </h1>
-          </motion.div>
+        <div className="relative max-w-7xl mx-auto px-5">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-4 items-center min-h-[calc(100vh-5rem)] md:min-h-[88vh]">
 
-          {/* PILL com borda azul brilhante */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center mb-5"
-          >
-            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-accent-2 bg-accent/5 glow-blue-soft">
-              <Sparkles className="w-3.5 h-3.5 text-accent-2" aria-hidden="true" />
-              <span className="text-sm md:text-base font-medium text-ink tracking-wide">
-                Crie imagens e vídeos com Inteligência Artificial
-              </span>
-            </span>
-          </motion.div>
+            {/* ─── COL ESQUERDA (desktop) / abaixo da imagem (mobile) ─── */}
+            <div className="order-2 md:order-1 text-center md:text-left max-w-xl mx-auto md:mx-0 pb-8 md:pb-0">
 
-          {/* BULLETS · plataformas */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="flex items-center justify-center flex-wrap gap-x-6 gap-y-2 mb-8 text-ink-dim text-sm md:text-base font-medium"
-          >
-            <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />Para Instagram</span>
-            <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />Marketplace</span>
-            <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />TikTok</span>
-            <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />E-commerce</span>
-          </motion.div>
+              {/* LOGO REAL */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="flex justify-center md:justify-start mb-6"
+              >
+                <h1 className="m-0 leading-none">
+                  <LogoMark variant="huge" priority />
+                  <span className="sr-only">
+                    nexIA Packshot — Packshots e criativos de alta qualidade para vender mais.
+                  </span>
+                </h1>
+              </motion.div>
 
-          {/* SUBHEAD com ícone */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex items-start justify-center gap-3 max-w-3xl mx-auto mb-10"
-          >
-            <span className="shrink-0 w-9 h-9 rounded-md tech-tile flex items-center justify-center mt-1">
-              <TrendingUp className="w-4 h-4 text-accent-2" aria-hidden="true" />
-            </span>
-            <p className="text-lg md:text-2xl text-ink font-semibold leading-snug text-balance text-left md:text-center">
-              Packshots e criativos de <span className="text-accent-2">alta qualidade</span> para vender mais
-            </p>
-          </motion.div>
+              {/* SUBHEAD (texto principal) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex items-start gap-3 mb-5 justify-center md:justify-start"
+              >
+                <span className="shrink-0 w-9 h-9 rounded-md tech-tile flex items-center justify-center mt-0.5">
+                  <TrendingUp className="w-4 h-4 text-accent-2" aria-hidden="true" />
+                </span>
+                <p className="text-lg md:text-2xl text-ink font-semibold leading-snug text-balance">
+                  Packshots e criativos de <span className="text-accent-2">alta qualidade</span> para vender mais
+                </p>
+              </motion.div>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.65 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6"
-          >
-            <a
-              href="#preco"
-              className="group inline-flex items-center gap-2 px-7 py-4 rounded-md bg-accent text-bg font-extrabold text-base font-mono tracking-wider uppercase hover:bg-accent-dark transition-colors glow-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              {/* PILL */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.35 }}
+                className="flex justify-center md:justify-start mb-4"
+              >
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent-2 bg-accent/5 glow-blue-soft">
+                  <Sparkles className="w-3.5 h-3.5 text-accent-2" aria-hidden="true" />
+                  <span className="text-xs md:text-sm font-medium text-ink tracking-wide">
+                    Crie com Inteligência Artificial
+                  </span>
+                </span>
+              </motion.div>
+
+              {/* BULLETS plataformas */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                className="flex items-center flex-wrap gap-x-5 gap-y-2 mb-7 text-ink-dim text-sm font-medium justify-center md:justify-start"
+              >
+                <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />Instagram</span>
+                <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />Marketplace</span>
+                <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />TikTok</span>
+                <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent-2" aria-hidden="true" />E-commerce</span>
+              </motion.div>
+
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.55 }}
+                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 justify-center md:justify-start mb-5"
+              >
+                <a
+                  href="#preco"
+                  className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-accent text-bg font-extrabold text-base font-mono tracking-wider uppercase hover:bg-accent-dark transition-colors glow-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                >
+                  Quero entrar
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
+                </a>
+                <a
+                  href="#galeria"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md border border-accent/40 text-ink hover:border-accent-2 hover:text-accent-2 transition-colors text-sm font-mono tracking-wider uppercase font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                >
+                  Ver galeria
+                </a>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.75 }}
+                className="text-[10px] md:text-[11px] text-ink-dimmer tracking-widest uppercase font-mono"
+              >
+                Acesso vitalício&nbsp;· Garantia 7 dias&nbsp;· Atualizações inclusas
+              </motion.div>
+            </div>
+
+            {/* ─── COL DIREITA (desktop only) com hero-desk.webp ─── */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.1 }}
+              className="hidden md:flex order-1 md:order-2 items-center justify-center relative"
             >
-              Quero entrar
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
-            </a>
-            <a
-              href="#galeria"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-md border border-accent/40 text-ink hover:border-accent-2 hover:text-accent-2 transition-colors text-sm font-mono tracking-wider uppercase font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-            >
-              Ver galeria
-            </a>
-          </motion.div>
+              <Image
+                src="/galeria/hero-desk.webp"
+                alt="Demonstração: produto real em foto original transformado em packshot de estúdio, cena natural e cena urbana"
+                width={1920}
+                height={1080}
+                priority
+                className="w-full h-auto max-h-[88vh] object-contain"
+              />
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.85 }}
-            className="text-center text-[11px] md:text-xs text-ink-dimmer tracking-widest uppercase font-mono"
-          >
-            Acesso vitalício&nbsp;· Garantia 7 dias&nbsp;· Atualizações inclusas
-          </motion.div>
+            {/* ─── IMAGEM MOBILE ONLY (em cima do texto) ─── */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.1 }}
+              className="order-1 md:hidden -mx-5"
+            >
+              <Image
+                src="/galeria/hero-mobi.webp"
+                alt="Demonstração: produto real transformado em packshots profissionais com IA"
+                width={750}
+                height={1334}
+                priority
+                className="w-full h-auto"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
